@@ -111,9 +111,6 @@ public void actionPerformed(ActionEvent event) {
         msg.getRootPanel().setPanelColors(defColor);
         
         msg.show();
-        
-        if(msg.getExitStatus()==true)
-      	  close();
       }
   }
 
