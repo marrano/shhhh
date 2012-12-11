@@ -91,7 +91,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 
 @Override
 public void actionPerformed(ActionEvent event) {
-	textAreaOutput.setText("Siamo pigiati!");
+	//textAreaOutput.setText("Siamo pigiati!");
 
     if (event.getSource() == button) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
