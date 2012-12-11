@@ -113,7 +113,6 @@ public void actionPerformed(ActionEvent event) {
 
   public void valueChanged(ValueChangedEvent e) {
 	  MessageBox msg = new MessageBox("...", "Siamo dentro!");
-     
       msg.show();
 	  textAreaOutput.setText("Siamo dentro!");
 	if(e.getSource() == textAreaInput){
