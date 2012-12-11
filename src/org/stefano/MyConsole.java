@@ -92,7 +92,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 }
 
 public void actionPerformed(ActionEvent event) {
-	textAreaOutput.setText("Siamo pigiati!\n");
+	textAreaOutput.setText("Siamo pigiati");
     if (event.getSource() == button) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
@@ -111,7 +111,7 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void valueChanged(ValueChangedEvent e) {
-	  textAreaOutput.setText("Siamo dentro!\n");
+	  textAreaOutput.setText("Siamo dentro!");
 	if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
