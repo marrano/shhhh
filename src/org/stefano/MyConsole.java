@@ -115,15 +115,11 @@ public void stateChanged(ItemEvent e) {
   @Override
 public void valueChanged(ValueChangedEvent e) {
 	if(e.getSource() == textAreaInput){
-		  try {
+		
 			textAreaInput.removeListener(this);
 			textAreaInput.setText("");
 			this.paint();
-		  	} 
-		  catch (UnsupportedEncodingException e1) {
-			  // TODO Auto-generated catch block
-			e1.printStackTrace();
-		  }
+
 		  textAreaInput.addListener(this);
 	  }
 
