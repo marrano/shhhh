@@ -130,7 +130,7 @@ public void valueChanged(ValueChangedEvent e) {
   @Override
 public void windowChanged(WindowEvent event) {
 	  textAreaOutput.setText("Siamo dentro!");
-	  textAreaOutput.notifyAll();
+	  textAreaOutput.notify();
     if (event.getType() == WindowEvent.CLOSING) 
     {
       event.getSourceWindow().close();
