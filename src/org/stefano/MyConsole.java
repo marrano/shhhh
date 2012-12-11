@@ -103,6 +103,16 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void valueChanged(ValueChangedEvent e) {
+	if(e.getSource() == textAreaInput){
+		  try {
+			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
+			textAreaInput.setText(valueISO);
+		  	} 
+		  catch (UnsupportedEncodingException e1) {
+			  // TODO Auto-generated catch block
+			e1.printStackTrace();
+		  }
+	  }
 
   }
 
@@ -116,15 +126,6 @@ public void actionPerformed(ActionEvent event) {
     {
     	Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
     }    
-	if(event.getSource() == textAreaInput){
-		  try {
-			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
-			textAreaInput.setText(valueISO);
-		  	} 
-		  catch (UnsupportedEncodingException e1) {
-			  // TODO Auto-generated catch block
-			e1.printStackTrace();
-		  }
-	  }
+
   }
 }
