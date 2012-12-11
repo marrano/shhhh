@@ -106,7 +106,7 @@ public void actionPerformed(ActionEvent event) {
 	  if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
-			
+			textAreaInput.setText(valueISO);
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
