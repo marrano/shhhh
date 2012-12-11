@@ -28,7 +28,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     Toolkit.clearScreen(defColor); /*All black*/
     
-    Toolkit.setEncoding("ISO-8859-1");
+    //Toolkit.setEncoding("ISO-8859-1");
     
     addListener(this);
   }
@@ -120,6 +120,7 @@ public void valueChanged(ValueChangedEvent e) {
 			value.substring(value.length()-1);
 			String valueISO = new String(value.getBytes("CP850"), "ISO-8859-1");
 			textAreaInput.removeListener(this);
+			textAreaInput.setText("");
 			textAreaInput.setText(valueISO);
 			this.paint();
 		  	} 
