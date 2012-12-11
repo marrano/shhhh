@@ -91,8 +91,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 
 @Override
 public void actionPerformed(ActionEvent event) {
-	//gtextAreaOutput.setText("Siamo pigiati!");
-
+	gtextAreaOutput.setText("Siamo pigiati!");
+	this.paint();
     if (event.getSource() == button) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
@@ -114,6 +114,7 @@ public void stateChanged(ItemEvent e) {
   @Override
 public void valueChanged(ValueChangedEvent e) {
 	  textAreaOutput.setText("Siamo dentro!");
+	  this.paint();
 	if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
@@ -129,8 +130,6 @@ public void valueChanged(ValueChangedEvent e) {
 
   @Override
 public void windowChanged(WindowEvent event) {
-	  textAreaOutput.setText("Siamo dentro!");
-	  this.paint();
     if (event.getType() == WindowEvent.CLOSING) 
     {
       event.getSourceWindow().close();
