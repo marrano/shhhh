@@ -100,7 +100,7 @@ public void actionPerformed(ActionEvent event) {
 	textAreaOutput.setText("Siamo pigiati!");
 
     if (event.getSource() == button) {
-      MessageBox msg = new MessageBox("Esci", "Sei sicuro midmmo?");
+      MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
       msg.setTitleColors(defColor);
       
