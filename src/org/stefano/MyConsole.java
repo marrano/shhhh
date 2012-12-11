@@ -101,9 +101,9 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void valueChanged(ValueChangedEvent e) {
-	  if(e.getSource() == )
-			  String valueISO = new String(valueCP850.getBytes("CP850"), "ISO-8859-1");
-
+	  if(e.getSource() == textAreaInput){
+		  String valueISO = new String(textAreaInput.getBytes("CP850"), "ISO-8859-1");
+	  }
   }
 
   public void windowChanged(WindowEvent event) {
