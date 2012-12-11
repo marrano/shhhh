@@ -129,6 +129,8 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void windowChanged(WindowEvent event) {
+	  MessageBox msg = new MessageBox("...", "Siamo dentro!");
+      msg.show();
     if (event.getType() == WindowEvent.CLOSING) 
     {
       event.getSourceWindow().close();
