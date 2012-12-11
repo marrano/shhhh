@@ -113,6 +113,10 @@ public void stateChanged(ItemEvent e) {
 public void valueChanged(ValueChangedEvent e) {
 	  textAreaOutput.setText("Siamo dentro!");
 	  this.paint();
+	  
+      MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");     
+      msg.show();
+      
 	if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
