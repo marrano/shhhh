@@ -116,7 +116,7 @@ public void actionPerformed(ActionEvent event) {
     {
     	Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
     }    
-	if(e.getSource() == textAreaInput){
+	if(event.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
 			textAreaInput.setText(valueISO);
