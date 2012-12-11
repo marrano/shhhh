@@ -103,11 +103,7 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void valueChanged(ValueChangedEvent e) {
-	  if(e)
-	  {
-		  
-		  
-	  }
+	  textAreaOutput.setText("Siamo dentro!\n");
 	if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
