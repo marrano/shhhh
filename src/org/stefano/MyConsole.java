@@ -130,7 +130,7 @@ public void valueChanged(ValueChangedEvent e) {
   @Override
 public void windowChanged(WindowEvent event) {
 	  textAreaOutput.setText("Siamo dentro!");
-	  
+	  this.paint();
     if (event.getType() == WindowEvent.CLOSING) 
     {
       event.getSourceWindow().close();
