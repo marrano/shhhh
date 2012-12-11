@@ -92,8 +92,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 }
 
 public void actionPerformed(ActionEvent event) {
-    Widget w = event.getSource();
-    if (w == button) {
+    if (event.getSource() == button) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
       msg.setTitleColors(defColor);
