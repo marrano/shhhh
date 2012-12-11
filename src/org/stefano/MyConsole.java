@@ -101,6 +101,8 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void valueChanged(ValueChangedEvent e) {
+	  if(e.getSource() == )
+			  String valueISO = new String(valueCP850.getBytes("CP850"), "ISO-8859-1");
 
   }
 
