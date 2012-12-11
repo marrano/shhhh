@@ -1,5 +1,7 @@
 package org.stefano;
 
+import java.io.UnsupportedEncodingException;
+
 import jcurses.event.*;
 import jcurses.system.CharColor;
 import jcurses.system.Toolkit;
@@ -102,7 +104,12 @@ public void actionPerformed(ActionEvent event) {
 
   public void valueChanged(ValueChangedEvent e) {
 	  if(e.getSource() == textAreaInput){
-		  String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
+		  try {
+			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	  }
   }
 
