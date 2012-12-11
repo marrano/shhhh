@@ -112,12 +112,12 @@ public void stateChanged(ItemEvent e) {
 
   @Override
 public void valueChanged(ValueChangedEvent e) {
-	  textAreaOutput.setText("Siamo dentro!");
-	  this.paint();     
 	if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
+			textAreaInput.removeListener(this);
 			textAreaInput.setText(valueISO);
+			textAreaInput.addListener(this);
 		  	} 
 		  catch (UnsupportedEncodingException e1) {
 			  // TODO Auto-generated catch block
