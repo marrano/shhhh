@@ -16,7 +16,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static TextField textfield 	= null;
   static Button button 			= null;
   static TextArea textAreaOutput= null;
-  static TextArea textAreaInput = null;
+  //static TextArea textAreaInput = null;
   static TextField textAreaInput = null;
   static MyConsole window 		= null;
   static CharColor defColor 	= null;
