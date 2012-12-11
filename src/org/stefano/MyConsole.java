@@ -126,6 +126,5 @@ public void actionPerformed(ActionEvent event) {
     {
     	Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
     }    
-
   }
 }
