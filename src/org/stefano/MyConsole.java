@@ -103,24 +103,28 @@ public void actionPerformed(ActionEvent event) {
   }
 
   public void valueChanged(ValueChangedEvent e) {
-	  if(e.getSource() == textAreaInput){
-		  try {
-			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
-			textAreaInput.setText(valueISO);
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	  }
+
   }
 
   public void windowChanged(WindowEvent event) {
-    if (event.getType() == WindowEvent.CLOSING) {
+    if (event.getType() == WindowEvent.CLOSING) 
+    {
       event.getSourceWindow().close();
       Toolkit.clearScreen(defColor);
     }
-    if (event.getType() == WindowEvent.ACTIVATED) {
+    if (event.getType() == WindowEvent.ACTIVATED) 
+    {
     	Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
-      }    
+    }    
+	if(e.getSource() == textAreaInput){
+		  try {
+			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
+			textAreaInput.setText(valueISO);
+		  	} 
+		  catch (UnsupportedEncodingException e1) {
+			  // TODO Auto-generated catch block
+			e1.printStackTrace();
+		  }
+	  }
   }
 }
