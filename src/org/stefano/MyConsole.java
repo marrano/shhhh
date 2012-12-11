@@ -56,6 +56,13 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_LEFT,
             WidgetsConstants.ALIGNMENT_TOP);
     
+    textAreaInput = new jcurses.widgets.TextField(Toolkit.getScreenWidth()-4,"...qui si scrive");  
+    textAreaInput.setColors(defColor);
+    textAreaInput.setTextComponentColors(defInvColor);	/* focus color*/
+    mgr.addWidget(textAreaInput, 0, Toolkit.getScreenHeight()/2 + 16, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 - 20,
+            WidgetsConstants.ALIGNMENT_LEFT,
+            WidgetsConstants.ALIGNMENT_TOP);
+    
 
     
 
