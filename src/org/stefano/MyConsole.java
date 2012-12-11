@@ -114,6 +114,8 @@ public void stateChanged(ItemEvent e) {
 public void valueChanged(ValueChangedEvent e) {
 	if(e.getSource() == textAreaInput){
 		  try {
+			String value = new String(textAreaInput.getText());
+			value.substring(value.length()-1);
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
 			textAreaInput.removeListener(this);
 			textAreaInput.setText(valueISO);
