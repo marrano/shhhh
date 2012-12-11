@@ -28,6 +28,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     Toolkit.clearScreen(defColor); /*All black*/
     
+    Toolkit.setEncoding(encoding;)
+    
     addListener(this);
   }
  
