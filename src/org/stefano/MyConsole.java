@@ -92,6 +92,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 }
 
 public void actionPerformed(ActionEvent event) {
+	textAreaOutput.setText("Siamo pigiati!\n");
     if (event.getSource() == button) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
