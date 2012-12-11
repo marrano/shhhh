@@ -35,7 +35,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	DefaultLayoutManager mgr = new DefaultLayoutManager();
     mgr.bindToContainer(getRootPanel());
     mgr.addWidget(
-        new Label("Shhhh!!! ..questa è una chat segreta!", defColor),
+        new Label("Shhhh!!! ..questa è una chat segreta1111!", defColor),
         			2, 2, 40, 10,
         			WidgetsConstants.ALIGNMENT_LEFT,
         			WidgetsConstants.ALIGNMENT_TOP);
