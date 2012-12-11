@@ -5,8 +5,6 @@ import java.io.UnsupportedEncodingException;
 import jcurses.event.*;
 import jcurses.system.CharColor;
 import jcurses.system.Toolkit;
-import jcurses.util.Message;
-import jcurses.util.Rectangle;
 import jcurses.widgets.*;
 
 
@@ -30,7 +28,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     Toolkit.clearScreen(defColor); /*All black*/
     
-    addListener((WindowListener) this);
+    addListener(this);
   }
  
   public void init() {
@@ -96,6 +94,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	
 }
 
+@Override
 public void actionPerformed(ActionEvent event) {
 	textAreaOutput.setText("Siamo pigiati!");
 
@@ -113,10 +112,12 @@ public void actionPerformed(ActionEvent event) {
     }
   }
 
-  public void stateChanged(ItemEvent e) {   
+  @Override
+public void stateChanged(ItemEvent e) {   
   }
 
-  public void valueChanged(ValueChangedEvent e) {
+  @Override
+public void valueChanged(ValueChangedEvent e) {
 	  textAreaOutput.setText("Siamo dentro!");
 	if(e.getSource() == textAreaInput){
 		  try {
@@ -131,7 +132,8 @@ public void actionPerformed(ActionEvent event) {
 
   }
 
-  public void windowChanged(WindowEvent event) {
+  @Override
+public void windowChanged(WindowEvent event) {
 
     if (event.getType() == WindowEvent.CLOSING) 
     {

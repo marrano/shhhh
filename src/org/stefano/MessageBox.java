@@ -116,6 +116,7 @@ public class MessageBox extends Dialog implements ActionListener  {
 	/**
 	*  Required for implementing <code>jcurses.event.ActionListener</code>
 	*/
+	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == _buttonOk)
 		{
