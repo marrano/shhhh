@@ -118,7 +118,7 @@ public void valueChanged(ValueChangedEvent e) {
 		
 			textAreaInput.removeListener(this);
 			textAreaInput.setText("");
-			this.paint();
+			repaintMe();
 
 		  textAreaInput.addListener(this);
 	  }
