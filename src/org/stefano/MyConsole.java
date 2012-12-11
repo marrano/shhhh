@@ -139,6 +139,7 @@ public void windowChanged(WindowEvent event) {
   }
   private void repaintMe()
   {
-	  
+	  this.paint();
+	  Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
   }
 }
