@@ -80,7 +80,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     mgr.addWidget(button, 2, Toolkit.getScreenHeight()-12, 10, 10,
             WidgetsConstants.ALIGNMENT_BOTTOM,
             WidgetsConstants.ALIGNMENT_LEFT);
-      		
+    textAreaOutput.setText("Siamo pigiati!");
     show();
     //Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
     textAreaInput.getFocus();	
@@ -93,7 +93,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 
 public void actionPerformed(ActionEvent event) {
 	textAreaOutput.setText("Siamo pigiati!");
-	this.paint();
+
     if (event.getSource() == button) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
