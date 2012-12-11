@@ -13,6 +13,10 @@ public class Main
     {    
         MyConsole w = new MyConsole(100, 40);
         w.init();
+        Thread.currentThread();
+        Thread.sleep(3000);
+        w.close();
+
     }
 }
 
