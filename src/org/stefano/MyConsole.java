@@ -103,6 +103,18 @@ public void actionPerformed(ActionEvent event) {
       if(msg.getExitStatus()==true)
     	  close();
     }
+    if (event.getSource() == textAreaInput) {
+        MessageBox msg = new MessageBox("...", "WOW!");
+        msg.setBorderColors(defColor);
+        msg.setTitleColors(defColor);
+        
+        msg.getRootPanel().setPanelColors(defColor);
+        
+        msg.show();
+        
+        if(msg.getExitStatus()==true)
+      	  close();
+      }
   }
 
   @Override
@@ -112,11 +124,7 @@ public void stateChanged(ItemEvent e) {
   @Override
 public void valueChanged(ValueChangedEvent e) {
 	  textAreaOutput.setText("Siamo dentro!");
-	  this.paint();
-	  
-      MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");     
-      msg.show();
-      
+	  this.paint();     
 	if(e.getSource() == textAreaInput){
 		  try {
 			String valueISO = new String(textAreaInput.getText().getBytes("CP850"), "ISO-8859-1");
