@@ -120,7 +120,7 @@ public void valueChanged(ValueChangedEvent e) {
 			String lastChar = new String(value.substring(value.length()-1));
 			String valueISO = new String(lastChar.getBytes("CP850"), "ISO-8859-1");
 			textAreaInput.removeListener(this);
-			textAreaInput.setText(value + valueISO);
+			textAreaInput.setText(value.substring(0,value.length()-1) + valueISO);
 			this.paint();
 		  	} 
 		  catch (UnsupportedEncodingException e1) {
