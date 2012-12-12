@@ -51,12 +51,6 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
     
-//    textAreaInput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 - 20,"...qui si scrive");  
-//    textAreaInput.setColors(defColor);
-//    textAreaInput.setTextComponentColors(defInvColor);	/* focus color*/
-//    mgr.addWidget(textAreaInput, 0, Toolkit.getScreenHeight()/2 + 16, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 - 20,
-//            WidgetsConstants.ALIGNMENT_LEFT,
-//            WidgetsConstants.ALIGNMENT_TOP);
     
     textFieldInput = new TextField(Toolkit.getScreenWidth()-4,"...qui si scrive");  
     textFieldInput.setColors(defColor);
@@ -94,10 +88,11 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_LEFT);
     
     show();
-    //Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
+    
     textFieldInput.getFocus();	
     textFieldInput.addListener(this);
     
+    textAreaOutput.setCursorLocation(1, 1);
   }
 
   private void setTitleColors(short magenta) {
