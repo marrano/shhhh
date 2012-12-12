@@ -97,6 +97,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     //Toolkit.changeColors(this.getRectangle(), defColor);  /* Set background to black */
     textFieldInput.getFocus();	
     textFieldInput.addListener(this);
+    
   }
 
   private void setTitleColors(short magenta) {
