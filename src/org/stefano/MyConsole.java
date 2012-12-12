@@ -92,7 +92,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     textFieldInput.getFocus();	
     textFieldInput.addListener(this);
     
-    textAreaOutput.setCursorLocation(1, 1);
+
   }
 
   private void setTitleColors(short magenta) {
