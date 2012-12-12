@@ -106,10 +106,9 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 public void actionPerformed(ActionEvent event) {
     if (event.getSource() == buttonExit) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
-      msg.setBorderColors(defColor);
+      msg.setBorderColors(defInvColor);
       msg.setTitleColors(defColor);
-      msg.setTitleColors(defColor)
-      msg.setShadow(true);
+      msg.setTitleColors(defColor);
       
       msg.getRootPanel().setPanelColors(defColor);
       
