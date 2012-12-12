@@ -117,12 +117,10 @@ public void actionPerformed(ActionEvent event) {
     	  close();
     }
     if (event.getSource() == buttonSend) {
-		//textFieldInput.removeListener(this);
 		textAreaOutput.setText(textAreaOutput.getText() + "\n" + textFieldInput.getText());
 		textFieldInput.setText("");
 		paint();
 		textFieldInput.getFocus();	
-		//textFieldInput.addListener(this);
 	}
   }
 
