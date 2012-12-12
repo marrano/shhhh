@@ -30,6 +30,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     this.getRootPanel().setColors(defColor);
     this.getRootPanel().setPanelColors(defColor);
+    
   }
  
   public void init() {
