@@ -59,7 +59,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     textFieldInput = new TextField(Toolkit.getScreenWidth()-4,"...qui si scrive");  
     textFieldInput.setColors(defColor);
-    textFieldInput.setBorderColors(defColor);
+    textFieldInput.setCursorColors(defColor);
+    textFieldInput.setDelimiterColors(defColor);
     textFieldInput.setTextComponentColors(defInvColor);	/* focus color*/
     mgr.addWidget(textFieldInput, 0, Toolkit.getScreenHeight()/2 + 16, Toolkit.getScreenWidth()-24, Toolkit.getScreenHeight()/2 - 20,
             WidgetsConstants.ALIGNMENT_TOP,
