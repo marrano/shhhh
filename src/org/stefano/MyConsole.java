@@ -108,6 +108,7 @@ public void actionPerformed(ActionEvent event) {
       MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
       msg.setBorderColors(defColor);
       msg.setTitleColors(defColor);
+      msg.setShadow(true);
       
       msg.getRootPanel().setPanelColors(defColor);
       
