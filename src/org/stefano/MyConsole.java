@@ -123,15 +123,7 @@ public void stateChanged(ItemEvent e) {
 
   @Override
 public void valueChanged(ValueChangedEvent e) {
-	  if ((e.getSource() == textAreaOutput) && (textAreaOutput.))
-	  {	  
-		  Toolkit.endPainting();
-		  close();
-	  }
-	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.DESELECTED))
-	  {	  
-		  Toolkit.startPainting();
-	  }	  
+
   }
 
   @Override
