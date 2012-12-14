@@ -54,12 +54,12 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    try {
-		cipher.init(Cipher.ENCRYPT_MODE, KS);
-	} catch (InvalidKeyException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+//    try {
+//		cipher.init(Cipher.ENCRYPT_MODE, KS);
+//	} catch (InvalidKeyException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 
 
     
