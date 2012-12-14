@@ -118,6 +118,11 @@ public void actionPerformed(ActionEvent event) {
 
   @Override
 public void stateChanged(ItemEvent e) {  
+
+  }
+
+  @Override
+public void valueChanged(ValueChangedEvent e) {
 	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.SELECTED))
 	  {	  
 		  Toolkit.endPainting();
@@ -127,11 +132,6 @@ public void stateChanged(ItemEvent e) {
 	  {	  
 		  Toolkit.startPainting();
 	  }	  
-  }
-
-  @Override
-public void valueChanged(ValueChangedEvent e) {
-
   }
 
   @Override
