@@ -122,7 +122,7 @@ public void stateChanged(ItemEvent e) {
 	  {	  
 		  Toolkit.endPainting();
 	  }
-	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.SELECTED))
+	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.DESELECTED))
 	  {	  
 		  Toolkit.startPainting();
 	  }	  
