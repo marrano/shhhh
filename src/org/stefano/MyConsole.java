@@ -8,8 +8,10 @@ import jcurses.system.CharColor;
 import jcurses.system.Toolkit;
 import jcurses.widgets.*;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
@@ -140,8 +142,13 @@ public void actionPerformed(ActionEvent event) {
     }
     if (event.getSource() == buttonSend) {
 		textAreaOutput.setText(textAreaOutput.getText() + "\n" + textFieldInput.getText());
-		textFieldInput.getText().getBytes();
-		byte[] encrypted = cipher.doFinal();
+		
+		try {
+			byte[] encrypted = cipher.doFinal(textFieldInput.getText().getBytes());
+		} catch (IllegalBlockSizeException | BadPaddingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		textFieldInput.setText("");
 		paint();
 		textFieldInput.getFocus();	
