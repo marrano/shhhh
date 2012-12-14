@@ -16,8 +16,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static TextField textfield 		= null;
   static Button buttonExit 			= null;
   static Button buttonSend 			= null;
-  //static TextArea textAreaOutput	= null;
-  static Label LabelOutput			= null;
+  static TextArea textAreaOutput	= null;
   static TextField textFieldInput 	= null;
   static MyConsole window 			= null;
   static CharColor defColor 		= null;
@@ -47,12 +46,12 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
         			WidgetsConstants.ALIGNMENT_LEFT,
         			WidgetsConstants.ALIGNMENT_TOP);
       
-    //LabelOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
-    LabelOutput = new Label("", defColor);
-    LabelOutput.setColors(defColor);
-    //LabelOutput.setBorderColors(defColor);
-    //LabelOutput.setTextComponentColors(defInvColor);	/* focus color*/
-    mgr.addWidget(LabelOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
+    textAreaOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
+    textAreaOutput.setColors(defColor);
+    textAreaOutput.setBorderColors(defColor);
+    textAreaOutput.setTextComponentColors(defInvColor);	/* focus color*/
+    textAreaOutput.removeListener(this);
+    mgr.addWidget(textAreaOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
     
@@ -110,7 +109,7 @@ public void actionPerformed(ActionEvent event) {
     	  close();
     }
     if (event.getSource() == buttonSend) {
-		LabelOutput.setText(LabelOutput.getText() + "\n" + textFieldInput.getText());
+		textAreaOutput.setText(textAreaOutput.getText() + "\n" + textFieldInput.getText());
 		textFieldInput.setText("");
 		paint();
 		textFieldInput.getFocus();	
