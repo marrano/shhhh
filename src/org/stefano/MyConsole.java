@@ -47,7 +47,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
         			WidgetsConstants.ALIGNMENT_LEFT,
         			WidgetsConstants.ALIGNMENT_TOP);
       
-    LabelOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
+    //LabelOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
+    LabelOutput = new Label(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,""); 
     LabelOutput.setColors(defColor);
     LabelOutput.setBorderColors(defColor);
     LabelOutput.setTextComponentColors(defInvColor);	/* focus color*/
