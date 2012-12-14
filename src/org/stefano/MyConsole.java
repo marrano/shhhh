@@ -57,12 +57,6 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    try {
-		
-	} catch (InvalidKeyException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
 
 
     
