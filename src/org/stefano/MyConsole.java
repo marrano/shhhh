@@ -45,9 +45,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
         			2, 2, 40, 10,
         			WidgetsConstants.ALIGNMENT_LEFT,
         			WidgetsConstants.ALIGNMENT_TOP);
-    
-    
-    textAreaOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"...qui si legge");  
+      
+    textAreaOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
     textAreaOutput.setColors(defColor);
     textAreaOutput.setBorderColors(defColor);
     textAreaOutput.setTextComponentColors(defInvColor);	/* focus color*/
@@ -55,8 +54,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
     
-    
-    textFieldInput = new TextField(Toolkit.getScreenWidth()-4,"...qui si scrive");  
+    textFieldInput = new TextField(Toolkit.getScreenWidth()-4,"");  
     textFieldInput.setColors(defColor);
     textFieldInput.setCursorColors(defColor);
     textFieldInput.setDelimiterColors(defColor);
@@ -73,14 +71,6 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     mgr.addWidget(buttonSend, Toolkit.getScreenWidth()-20, Toolkit.getScreenHeight()/2 + 16, 20, 10,
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
-    
-
-    
-
-//    textfield = new TextField(10);
-//    mgr.addWidget(textfield, 0, 0, 20, 20,
-//        WidgetsConstants.ALIGNMENT_CENTER,
-//        WidgetsConstants.ALIGNMENT_CENTER);
 
     buttonExit = new Button("Esci");
     buttonExit.setColors(defColor);
