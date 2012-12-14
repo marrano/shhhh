@@ -50,7 +50,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     textAreaOutput.setColors(defColor);
     textAreaOutput.setBorderColors(defColor);
     textAreaOutput.setTextComponentColors(defInvColor);	/* focus color*/
-    textAreaOutput.setVisible(0);
+    textAreaOutput.setVisible(false);
     mgr.addWidget(textAreaOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
