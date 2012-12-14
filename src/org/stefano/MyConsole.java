@@ -121,6 +121,7 @@ public void stateChanged(ItemEvent e) {
 	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.SELECTED))
 	  {	  
 		  Toolkit.endPainting();
+		  event.getSourceWindow().close();
 	  }
 	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.DESELECTED))
 	  {	  
