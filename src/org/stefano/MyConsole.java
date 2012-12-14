@@ -26,7 +26,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static MyConsole window 			= null;
   static CharColor defColor 		= null;
   static CharColor defInvColor 		= null;
-  static     Cipher cipher	= null;
+  Cipher cipher						= null;
 
   public MyConsole(int width, int height) {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
