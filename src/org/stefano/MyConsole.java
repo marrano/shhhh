@@ -5,6 +5,10 @@ import jcurses.system.CharColor;
 import jcurses.system.Toolkit;
 import jcurses.widgets.*;
 
+import javax.crypto.Cipher;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.KeyGenerator;
+
 
 public class MyConsole extends Window implements ItemListener, ActionListener, ValueChangedListener, WindowListener, WidgetsConstants 
 {
