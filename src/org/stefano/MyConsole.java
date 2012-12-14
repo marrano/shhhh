@@ -85,8 +85,6 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     textFieldInput.getFocus();	
     textFieldInput.addListener(this);
-    
-
   }
 
   private void setTitleColors(short magenta) {
