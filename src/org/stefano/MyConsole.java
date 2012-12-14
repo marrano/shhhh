@@ -73,7 +73,6 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
     
-    
     buttonExit = new Button("Esci");
     buttonExit.setColors(defColor);
     buttonExit.setFocusedButtonColors(defInvColor);	/* focus color*/
@@ -84,7 +83,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_LEFT);
     
     show();
-    Toolkit.drawHorizontalLine(20, 10, Toolkit.getScreenWidth()-2, new CharColor(CharColor.RED,CharColor.RED));
+    
+    Toolkit.drawHorizontalLine(20, 10, Toolkit.getScreenWidth()-2, defColor);
 
     
     textFieldInput.getFocus();	
