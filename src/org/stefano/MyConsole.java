@@ -55,6 +55,9 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	} catch (NoSuchPaddingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+	} catch (InvalidKeyException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
 
 
