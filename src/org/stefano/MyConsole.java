@@ -41,7 +41,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     this.getRootPanel().setPanelColors(defColor);
     
     
-    String Key = "Chiave";
+    String Key = "Chiavefffffffffffffffffffff3463634ty6";
     byte[] KeyData = Key.getBytes();
     SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
     Cipher cipher;
