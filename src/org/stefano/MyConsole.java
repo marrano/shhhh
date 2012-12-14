@@ -118,7 +118,7 @@ public void actionPerformed(ActionEvent event) {
 
   @Override
 public void stateChanged(ItemEvent e) {  
-	  if ((e.getSource() == textAreaOutput) && (e.getClass() == ItemEvent.SELECTED))
+	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.SELECTED))
 	  {
 		  
 		  textAreaOutput.getText()
