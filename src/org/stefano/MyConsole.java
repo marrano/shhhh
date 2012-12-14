@@ -141,7 +141,6 @@ public void actionPerformed(ActionEvent event) {
     	  close();
     }
     if (event.getSource() == buttonSend) {
-
 		try {
 			byte[] encrypted = cipher.doFinal(textFieldInput.getText().getBytes());
 			textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
