@@ -119,11 +119,13 @@ public void actionPerformed(ActionEvent event) {
   @Override
 public void stateChanged(ItemEvent e) {  
 	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.SELECTED))
-	  {
-		  
-		  textAreaOutput.getText()
-		  
+	  {	  
+		  Toolkit.endPainting();
 	  }
+	  if ((e.getSource() == textAreaOutput) && (e.getType() == ItemEvent.SELECTED))
+	  {	  
+		  Toolkit.startPainting();
+	  }	  
   }
 
   @Override
