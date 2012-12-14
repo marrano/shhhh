@@ -1,5 +1,6 @@
 package org.stefano;
 
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 import jcurses.event.*;
@@ -53,7 +54,12 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    cipher.init(Cipher.ENCRYPT_MODE, KS);
+    try {
+		cipher.init(Cipher.ENCRYPT_MODE, KS);
+	} catch (InvalidKeyException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 
 
     
