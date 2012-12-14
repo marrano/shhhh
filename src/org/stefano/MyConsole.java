@@ -1,5 +1,7 @@
 package org.stefano;
 
+import java.security.NoSuchAlgorithmException;
+
 import jcurses.event.*;
 import jcurses.system.CharColor;
 import jcurses.system.Toolkit;
@@ -8,6 +10,8 @@ import jcurses.widgets.*;
 import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
 
 
 public class MyConsole extends Window implements ItemListener, ActionListener, ValueChangedListener, WindowListener, WidgetsConstants 
@@ -34,6 +38,24 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     this.getRootPanel().setColors(defColor);
     this.getRootPanel().setPanelColors(defColor);
+    
+    
+    String Key = "Something";
+    byte[] KeyData = Key.getBytes();
+    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
+    Cipher cipher;
+	try {
+		cipher = Cipher.getInstance("Blowfish");
+	} catch (NoSuchAlgorithmException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (NoSuchPaddingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    cipher.init(Cipher.ENCRYPT_MODE, KS);
+
+
     
   }
  
