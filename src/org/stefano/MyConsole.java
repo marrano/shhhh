@@ -84,7 +84,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     show();
     
-    Toolkit.drawHorizontalLine(2, Toolkit.getScreenHeight()-16, Toolkit.getScreenWidth()-4, new CharColor(CharColor.REVERSE, CharColor.REVERSE));
+    Toolkit.drawHorizontalLine(2, Toolkit.getScreenHeight()-16, Toolkit.getScreenWidth()-4, new CharColor(CharColor.WHITE, CharColor.REVERSE));
     
     
     textFieldInput.getFocus();	
