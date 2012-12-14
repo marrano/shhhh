@@ -47,6 +47,9 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     Cipher cipher;
 	try {
 		cipher = Cipher.getInstance("Blowfish");
+		
+		cipher.init(Cipher.ENCRYPT_MODE, KS);
+		
 	} catch (NoSuchAlgorithmException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -55,7 +58,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 		e.printStackTrace();
 	}
     try {
-		cipher.init(Cipher.ENCRYPT_MODE, KS);
+		
 	} catch (InvalidKeyException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
