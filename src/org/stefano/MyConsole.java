@@ -140,7 +140,8 @@ public void actionPerformed(ActionEvent event) {
     }
     if (event.getSource() == buttonSend) {
 		textAreaOutput.setText(textAreaOutput.getText() + "\n" + textFieldInput.getText());
-		byte[] encrypted = cipher.doFinal(textFieldInput.getText().getBytes());
+		textFieldInput.getText().getBytes();
+		byte[] encrypted = cipher.doFinal();
 		textFieldInput.setText("");
 		paint();
 		textFieldInput.getFocus();	
