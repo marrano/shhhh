@@ -141,14 +141,16 @@ public void actionPerformed(ActionEvent event) {
     	  close();
     }
     if (event.getSource() == buttonSend) {
-		textAreaOutput.setText(textAreaOutput.getText() + "\n" + textFieldInput.getText());
-		
+
 		try {
 			byte[] encrypted = cipher.doFinal(textFieldInput.getText().getBytes());
+			textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
+			
 		} catch (IllegalBlockSizeException | BadPaddingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		textFieldInput.setText("");
 		paint();
 		textFieldInput.getFocus();	
