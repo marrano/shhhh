@@ -72,6 +72,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     mgr.addWidget(buttonSend, Toolkit.getScreenWidth()-20, Toolkit.getScreenHeight()/2 + 16, 20, 10,
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
+    
+    Toolkit.drawHorizontalThickLine(startX, startY, endX, color);
 
     buttonExit = new Button("Esci");
     buttonExit.setColors(defColor);
