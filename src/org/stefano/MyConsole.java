@@ -50,9 +50,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     //LabelOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
     LabelOutput = new Label("", defColor);
     LabelOutput.setColors(defColor);
-    LabelOutput.setBorderColors(defColor);
-    LabelOutput.setTextComponentColors(defInvColor);	/* focus color*/
-    LabelOutput.removeListener(this);
+    //LabelOutput.setBorderColors(defColor);
+    //LabelOutput.setTextComponentColors(defInvColor);	/* focus color*/
     mgr.addWidget(LabelOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
