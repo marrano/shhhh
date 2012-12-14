@@ -30,7 +30,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static CharColor defInvColor 		= null;
   Cipher cipher						= null;
 
-  public MyConsole(int width, int height) {
+  public MyConsole(int width, int height) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
     
     defColor = new CharColor(CharColor.BLACK, CharColor.WHITE);
@@ -47,20 +47,11 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     String Key = "Chiavefffffffffffffffffffff3463634ty6";
     byte[] KeyData = Key.getBytes();
     SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-	try {
+
 		cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 		cipher.init(Cipher.ENCRYPT_MODE, KS);
 		
-	} catch (NoSuchAlgorithmException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (NoSuchPaddingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InvalidKeyException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+
 
 
     
