@@ -46,8 +46,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
     Cipher cipher;
 	try {
-		cipher = Cipher.getInstance("Blowfish");
-		
+		cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 		cipher.init(Cipher.ENCRYPT_MODE, KS);
 		
 	} catch (NoSuchAlgorithmException e) {
