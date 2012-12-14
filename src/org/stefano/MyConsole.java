@@ -26,6 +26,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static MyConsole window 			= null;
   static CharColor defColor 		= null;
   static CharColor defInvColor 		= null;
+  static     Cipher cipher	= null;
 
   public MyConsole(int width, int height) {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
@@ -44,7 +45,6 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     String Key = "Chiavefffffffffffffffffffff3463634ty6";
     byte[] KeyData = Key.getBytes();
     SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-    Cipher cipher;
 	try {
 		cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 		cipher.init(Cipher.ENCRYPT_MODE, KS);
