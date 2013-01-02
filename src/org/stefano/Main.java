@@ -22,6 +22,7 @@ public class Main
         MyConsole w;
 		try {
 			w = new MyConsole(100, 40);
+			w.init();
 		} catch (InvalidKeyException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -32,7 +33,7 @@ public class Main
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-        w.init();
+        
         
         Thread.currentThread();
         try {
