@@ -55,15 +55,12 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
 //    String Key = "wazapp";
 //    byte[] KeyData;
-	try {
-//		KeyData = Key.getBytes("UTF8");
-//	    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
+//	  KeyData = Key.getBytes("UTF8");
+//    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
+	
 
-		cipher.init(Cipher.ENCRYPT_MODE, KS);
-	} catch (UnsupportedEncodingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}	
+	cipher.init(Cipher.ENCRYPT_MODE, KS);
+
 
   }
  
