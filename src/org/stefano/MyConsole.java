@@ -142,10 +142,15 @@ public void actionPerformed(ActionEvent event) {
     }
     if (event.getSource() == buttonSend) {
 		try {
-			byte[] encrypted;
+			byte[] encryptedText;
+			byte[] decryptedText;
 			try {
 				encrypted = encoder.doFinal(textFieldInput.getText().getBytes("UTF8"));
+				  = cipher.doFinal(ciphertext);
+				
 				textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
+				
+				
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
