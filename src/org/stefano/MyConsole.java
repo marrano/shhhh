@@ -1,6 +1,5 @@
 package org.stefano;
 
-import java.awt.RenderingHints.Key;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
