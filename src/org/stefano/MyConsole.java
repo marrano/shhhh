@@ -145,8 +145,8 @@ public void actionPerformed(ActionEvent event) {
 			byte[] encryptedText;
 			byte[] decryptedText;
 			try {
-				encrypted = encoder.doFinal(textFieldInput.getText().getBytes("UTF8"));
-				decryptedText = decoder.doFinal(encrypted);
+				encryptedText = encoder.doFinal(textFieldInput.getText().getBytes("UTF8"));
+				decryptedText = decoder.doFinal(encryptedText);
 				
 				textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
 				
