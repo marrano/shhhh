@@ -1,6 +1,7 @@
 package org.stefano;
 
 import java.security.InvalidKeyException;
+import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
 import jcurses.event.*;
@@ -51,7 +52,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
 
     keyGenerator.init(128);
-    Key KS = (Key) keyGenerator.generateKey();
+    Key KS = keyGenerator.generateKey();
 
 	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 	System.out.println(cipher.getProvider());
