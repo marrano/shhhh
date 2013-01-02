@@ -53,13 +53,12 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 //  Key KS = keyGenerator.generateKey();	
 	
     
-    String Key = "Chiavefffffffffffffffffffff3463634ty6";
+    String Key = "wazapp";
     byte[] KeyData;
 	try {
 		KeyData = Key.getBytes("UTF8");
 	    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-	    
-	    
+
 		cipher.init(Cipher.ENCRYPT_MODE, KS);
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
