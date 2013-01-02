@@ -63,6 +63,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+		exit();
 	}	
 
   }
