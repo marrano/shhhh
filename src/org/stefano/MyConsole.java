@@ -29,7 +29,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static MyConsole window 			= null;
   static CharColor defColor 		= null;
   static CharColor defInvColor 		= null;
-  Cipher cipher						= null;
+  Cipher encoder						= null;
 
   public MyConsole(int width, int height) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
@@ -45,8 +45,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     this.getRootPanel().setPanelColors(defColor);
     
     
-	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
-	System.out.println(cipher.getProvider());
+	encoder = Cipher.getInstance("Blowfish/CFB/NoPadding");
+	System.out.println(encoder.getProvider());
     
 	KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
 	keyGenerator.init(128);
@@ -59,7 +59,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 //    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
 	
 
-	cipher.init(Cipher.ENCRYPT_MODE, KS);
+	encoder.init(Cipher.ENCRYPT_MODE, KS);
 
 
   }
@@ -140,7 +140,7 @@ public void actionPerformed(ActionEvent event) {
     }
     if (event.getSource() == buttonSend) {
 		try {
-			byte[] encrypted = cipher.doFinal(textFieldInput.getText().getBytes());
+			byte[] encrypted = encoder.doFinal(textFieldInput.getText().getBytes());
 			textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
 			
 		} catch (IllegalBlockSizeException | BadPaddingException e) {
