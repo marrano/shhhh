@@ -45,7 +45,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     
     String Key = "Chiavefffffffffffffffffffff3463634ty6";
-    byte[] KeyData = Key.getBytes();
+    byte[] KeyData = Key.getBytes("UTF-8");
     SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
     
     
