@@ -145,12 +145,11 @@ public void actionPerformed(ActionEvent event) {
 			byte[] encrypted;
 			try {
 				encrypted = encoder.doFinal(textFieldInput.getText().getBytes("UTF8"));
+				textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
-			
 		} catch (IllegalBlockSizeException | BadPaddingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
