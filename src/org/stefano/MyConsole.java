@@ -44,15 +44,14 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     this.getRootPanel().setPanelColors(defColor);
     
     
-//    String Key = "Chiavefffffffffffffffffffff3463634ty6";
-//    byte[] KeyData = Key.getBytes();
-//    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
+    String Key = "Chiavefffffffffffffffffffff3463634ty6";
+    byte[] KeyData = Key.getBytes();
+    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
     
     
-    KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
-
-    keyGenerator.init(128);
-    Key KS = keyGenerator.generateKey();
+//    KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
+//    keyGenerator.init(128);
+//    Key KS = keyGenerator.generateKey();
 
 	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 	System.out.println(cipher.getProvider());
