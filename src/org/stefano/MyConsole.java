@@ -52,13 +52,12 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
 
     keyGenerator.init(128);
-    Key secretKey = (Key) keyGenerator.generateKey();
+    Key KS = (Key) keyGenerator.generateKey();
 
 	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 	System.out.println(cipher.getProvider());
 	
-//	cipher.init(Cipher.ENCRYPT_MODE, KS);
-	cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+	cipher.init(Cipher.ENCRYPT_MODE, KS);
   }
  
   public void init() {
