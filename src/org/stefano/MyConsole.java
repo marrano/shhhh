@@ -57,7 +57,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 	System.out.println(cipher.getProvider());
 	
-	cipher.init(Cipher.ENCRYPT_MODE, (java.security.Key) KS);
+	cipher.init(Cipher.ENCRYPT_MODE, KS);
   }
  
   public void init() {
