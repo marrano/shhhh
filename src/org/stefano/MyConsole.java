@@ -48,16 +48,16 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
 	System.out.println(cipher.getProvider());
     
-//  KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
-//  keyGenerator.init(128);
-//  Key KS = keyGenerator.generateKey();	
+	KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
+	keyGenerator.init(128);
+	Key KS = keyGenerator.generateKey();	
 	
     
-    String Key = "wazapp";
-    byte[] KeyData;
+//    String Key = "wazapp";
+//    byte[] KeyData;
 	try {
-		KeyData = Key.getBytes("UTF8");
-	    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
+//		KeyData = Key.getBytes("UTF8");
+//	    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
 
 		cipher.init(Cipher.ENCRYPT_MODE, KS);
 	} catch (UnsupportedEncodingException e) {
