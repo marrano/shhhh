@@ -148,8 +148,7 @@ public void actionPerformed(ActionEvent event) {
 				encryptedText = encoder.doFinal(textFieldInput.getText().getBytes("UTF8"));
 				decryptedText = decoder.doFinal(encryptedText);
 				
-				textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
-				
+				textAreaOutput.setText(textAreaOutput.getText() + "\n" + new String(decryptedText, "UTF8"));			
 				
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
