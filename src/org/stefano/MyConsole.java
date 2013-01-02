@@ -1,5 +1,6 @@
 package org.stefano;
 
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
@@ -45,7 +46,13 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     
     String Key = "Chiavefffffffffffffffffffff3463634ty6";
-    byte[] KeyData = Key.getBytes("UTF8");
+    byte[] KeyData;
+	try {
+		KeyData = Key.getBytes("UTF8");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
     
     
