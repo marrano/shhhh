@@ -142,7 +142,7 @@ public void actionPerformed(ActionEvent event) {
     }
     if (event.getSource() == buttonSend) {
 		try {
-			byte[] encrypted = encoder.doFinal(textFieldInput.getText().getBytes());
+			byte[] encrypted = encoder.doFinal(textFieldInput.getText().getBytes(""UTF8));
 			textAreaOutput.setText(textAreaOutput.getText() + "\n" + encrypted.toString());
 			
 		} catch (IllegalBlockSizeException | BadPaddingException e) {
