@@ -1,5 +1,6 @@
 package org.stefano;
 
+import java.awt.RenderingHints.Key;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -11,6 +12,7 @@ import jcurses.widgets.*;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -42,18 +44,19 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     this.getRootPanel().setPanelColors(defColor);
     
     
-    String Key = "Chiavefffffffffffffffffffff3463634ty6";
-    byte[] KeyData = Key.getBytes();
-    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-
-		cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
-		System.out.println(cipher.getProvider());
-		cipher.init(Cipher.ENCRYPT_MODE, KS);
-		
-
-
-
+//    String Key = "Chiavefffffffffffffffffffff3463634ty6";
+//    byte[] KeyData = Key.getBytes();
+//    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
     
+    
+    KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
+
+    keyGenerator.init(128);
+    Key secretKey = keyGenerator.generateKey();
+
+	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
+	System.out.println(cipher.getProvider());
+	cipher.init(Cipher.ENCRYPT_MODE, KS);
   }
  
   public void init() {
