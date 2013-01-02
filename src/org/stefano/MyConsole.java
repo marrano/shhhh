@@ -45,25 +45,27 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     this.getRootPanel().setPanelColors(defColor);
     
     
+	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
+	System.out.println(cipher.getProvider());
+    
+//  KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
+//  keyGenerator.init(128);
+//  Key KS = keyGenerator.generateKey();	
+	
+    
     String Key = "Chiavefffffffffffffffffffff3463634ty6";
     byte[] KeyData;
 	try {
 		KeyData = Key.getBytes("UTF8");
+	    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
+	    
+	    
+		cipher.init(Cipher.ENCRYPT_MODE, KS);
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	}
-    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-    
-    
-//    KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
-//    keyGenerator.init(128);
-//    Key KS = keyGenerator.generateKey();
+	}	
 
-	cipher = Cipher.getInstance("Blowfish/CFB/NoPadding");
-	System.out.println(cipher.getProvider());
-	
-	cipher.init(Cipher.ENCRYPT_MODE, KS);
   }
  
   public void init() {
