@@ -29,7 +29,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static MyConsole window 			= null;
   static CharColor defColor 		= null;
   static CharColor defInvColor 		= null;
-  Cipher encoder						= null;
+  Cipher encoder					= null;
+  Cipher decoder					= null;
 
   public MyConsole(int width, int height) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
