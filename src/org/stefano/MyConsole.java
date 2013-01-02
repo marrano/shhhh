@@ -61,7 +61,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 	
 
 	encoder.init(Cipher.ENCRYPT_MODE, KS);
-	encoder.init(Cipher.DECRYPT_MODE, KS);
+	decoder.init(Cipher.DECRYPT_MODE, KS);
 
 
   }
