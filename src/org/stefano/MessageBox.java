@@ -30,8 +30,8 @@ public class MessageBox extends Dialog implements ActionListener  {
 	static CharColor defColor 		= null;
 	static CharColor defInvColor 	= null;	
 	
-	static String buttonLabelOk = "Sono sicuro";
-	static String buttonLabelCancel = "C'ho ripensato";
+	static String buttonLabelOk = "Si, ne sono sicuro";
+	static String buttonLabelCancel = "No, ci ripenso su";
 	
 	boolean exitStatus = false;
 	

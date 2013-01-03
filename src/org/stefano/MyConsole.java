@@ -13,7 +13,6 @@ import jcurses.widgets.*;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -29,8 +28,8 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
   static MyConsole window 			= null;
   static CharColor defColor 		= null;
   static CharColor defInvColor 		= null;
-  Cipher encoder					= null;
-  Cipher decoder					= null;
+  Cipher cipher						= null;
+  Key 	 KS 						= null;
 
   public MyConsole(int width, int height) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
@@ -44,26 +43,20 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     this.getRootPanel().setColors(defColor);
     this.getRootPanel().setPanelColors(defColor);
+       
     
-    
-	encoder = Cipher.getInstance("Blowfish/CFB/NoPadding");
-	System.out.println(encoder.getProvider());
-    
-	KeyGenerator keyGenerator = KeyGenerator.getInstance("Blowfish");
-	keyGenerator.init(128);
-	Key KS = keyGenerator.generateKey();	
-	
-    
-//    String Key = "wazapp";
-//    byte[] KeyData;
-//	  KeyData = Key.getBytes("UTF8");
-//    SecretKeySpec KS = new SecretKeySpec(KeyData, "Blowfish");
-	
+	cipher = Cipher.getInstance("Blowfish/ECB/PKCS5Padding");
+	//System.out.println(cipher.getProvider());
 
-	encoder.init(Cipher.ENCRYPT_MODE, KS);
-	decoder.init(Cipher.DECRYPT_MODE, KS);
-
-
+    String Key = "wazapp";
+    byte[] KeyData = null;
+	try {
+		KeyData = Key.getBytes("UTF8");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    KS = new SecretKeySpec(KeyData, "Blowfish");
   }
  
   public void init() {
@@ -77,7 +70,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
       
     textAreaOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
     textAreaOutput.setColors(defColor);
-    textAreaOutput.setBorderColors(defColor);
+    textAreaOutput.setBorderColors(defInvColor);
     textAreaOutput.setTextComponentColors(defInvColor);	/* focus color*/
     textAreaOutput.removeListener(this);
     mgr.addWidget(textAreaOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
@@ -93,16 +86,16 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
     
-    buttonSend = new Button("Invia");
+    buttonSend = new Button("Manda");
     buttonSend.setColors(defColor);
     buttonSend.setFocusedButtonColors(defInvColor);	/* focus color*/
     buttonSend.setShortCut('s');
     buttonSend.addListener(this);
-    mgr.addWidget(buttonSend, Toolkit.getScreenWidth()-20, Toolkit.getScreenHeight()/2 + 16, 20, 10,
+    mgr.addWidget(buttonSend, Toolkit.getScreenWidth()-14, Toolkit.getScreenHeight()/2 + 16, 20, 10,
             WidgetsConstants.ALIGNMENT_TOP,
             WidgetsConstants.ALIGNMENT_LEFT);
     
-    buttonExit = new Button("Esci");
+    buttonExit = new Button("Smetti");
     buttonExit.setColors(defColor);
     buttonExit.setFocusedButtonColors(defInvColor);	/* focus color*/
     buttonExit.setShortCut('q');
@@ -113,7 +106,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
     
     show();
     
-    Toolkit.drawHorizontalLine(0, Toolkit.getScreenHeight()-6, Toolkit.getScreenWidth()-2, new CharColor(CharColor.BLACK, CharColor.WHITE, CharColor.BOLD));
+    Toolkit.drawHorizontalLine(1, Toolkit.getScreenHeight()-6, Toolkit.getScreenWidth()-5, new CharColor(CharColor.BLACK, CharColor.WHITE, CharColor.BOLD));
     
     
     textFieldInput.getFocus();	
@@ -128,7 +121,7 @@ public class MyConsole extends Window implements ItemListener, ActionListener, V
 @Override
 public void actionPerformed(ActionEvent event) {
     if (event.getSource() == buttonExit) {
-      MessageBox msg = new MessageBox("Esci", "Sei sicuro mimmo?");
+      MessageBox msg = new MessageBox("", "Vuoi smettere davvero?");
       msg.setBorderColors(defInvColor);
       msg.setTitleColors(defColor);
       msg.setTitleColors(defColor);
@@ -141,23 +134,44 @@ public void actionPerformed(ActionEvent event) {
     	  close();
     }
     if (event.getSource() == buttonSend) {
+
+		byte[] encryptedText = null;
+		byte[] decryptedText = null;
+
 		try {
-			byte[] encryptedText;
-			byte[] decryptedText;
-			try {
-				encryptedText = encoder.doFinal(textFieldInput.getText().getBytes("UTF8"));
-				decryptedText = decoder.doFinal(encryptedText);
-				
-				textAreaOutput.setText(textAreaOutput.getText() + "\n" + new String(decryptedText, "UTF8"));			
-				
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (IllegalBlockSizeException | BadPaddingException e) {
+			cipher.init(Cipher.ENCRYPT_MODE, KS);
+		} catch (InvalidKeyException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			encryptedText = cipher.doFinal(textFieldInput.getText().getBytes("UTF8"));
+		} catch (IllegalBlockSizeException | BadPaddingException
+				| UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		try {
+			cipher.init(Cipher.DECRYPT_MODE, KS);
+		} catch (InvalidKeyException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			decryptedText = cipher.doFinal(encryptedText);
+		} catch (IllegalBlockSizeException | BadPaddingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+			
+		try {
+			textAreaOutput.setText(textAreaOutput.getText() + "\n" + new String(decryptedText, "UTF8") + " (" + encryptedText.toString() + ")");
+		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}			
 		
 		textFieldInput.setText("");
 		paint();
@@ -184,6 +198,7 @@ public void windowChanged(WindowEvent event) {
     }
     if (event.getType() == WindowEvent.ACTIVATED) 
     {
+    	//paint();
     }    
   }
 }
