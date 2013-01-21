@@ -12,10 +12,10 @@ public class Main
     public static void main(String[] args)
     {    
         Toolkit.setEncoding("CP850");
-        MyConsole w;
+        Shhhh w;
 
 		try {
-			w = new MyConsole(100, 40);
+			w = new Shhhh(100, 40);
 			w.init();
 		} catch (InvalidKeyException | NoSuchAlgorithmException
 				| NoSuchPaddingException e1) {
