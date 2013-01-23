@@ -32,8 +32,10 @@ public class Shhhh extends Window implements ItemListener, ActionListener, Value
   Cipher cipher						= null;
   Key 	 KS 						= null;
   String key						= null;
-  String myName						= null;
-  String remoteName					= null;
+  String nick						= null;
+  Client chatClient					= null;
+  MessageBox connectionMsgBox 		= null;		
+  MessageBox errorMsgBox 			= null;	
 
   public Shhhh(int width, int height) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     super(Toolkit.getScreenWidth()-1, Toolkit.getScreenHeight()-1, false, ""); 
@@ -106,7 +108,31 @@ public class Shhhh extends Window implements ItemListener, ActionListener, Value
     
     paint();
     
-    getData();    
+    getData();   
+    
+    connectionMsgBox = new MessageBox("Info");
+    connectionMsgBox.setBorderColors(defInvColor);
+    connectionMsgBox.setTitleColors(defColor);
+    connectionMsgBox.setTitleColors(defColor);
+    connectionMsgBox.getRootPanel().setPanelColors(defColor);
+    errorMsgBox = new MessageBox("Error");
+    errorMsgBox.setBorderColors(defInvColor);
+    errorMsgBox.setTitleColors(defColor);
+    errorMsgBox.setTitleColors(defColor);
+    errorMsgBox.getRootPanel().setPanelColors(defColor);
+
+    connectionMsgBox.show();
+    
+	try {
+		chatClient = new Client(this);
+		
+	} catch (Exception e) {
+		printError("...ahia, qualcosa non funziona. Chiama il tecnico!\t  :("); 
+		errorMsgBox.show();
+		connectionMsgBox.close();
+        System.exit(1);
+    }
+    
   }
   
 private void getData() {  
@@ -130,7 +156,7 @@ private void getData() {
 		}
 	    KS = new SecretKeySpec(KeyData, "Blowfish");
 	    
-	    myName = new String(msg.getMyName());
+	    nick = new String(msg.getMyName());
   }
   else
 	  this.close();
@@ -190,6 +216,7 @@ public void actionPerformed(ActionEvent event) {
 		
 			
 		try {
+			chatClient.sendRemoteMsg(encryptedText.toString());
 			textAreaOutput.setText(textAreaOutput.getText() + "\n" + new String(decryptedText, "UTF8") + " (" + encryptedText.toString() + ")");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -229,5 +256,31 @@ public void windowChanged(WindowEvent event) {
     {
     	//paint();
     }    
+  }
+  
+  public void printConnectionInfo(String info)
+  {
+	  connectionMsgBox.setText("\n" + info + "\n");
+	  connectionMsgBox.paint();
+	  
+  }
+  
+  public void printError(String err)
+  {
+	  errorMsgBox.clean();
+	  errorMsgBox.setText("\n" + err + "\n");
+	 
+	  //errorMsgBox.show();
+	  errorMsgBox.paint();
+  }
+  
+  public void reciveRemoteMsg(String msg)
+  {
+	  textAreaOutput.setText(msg);
+  }
+  
+  public String getNick()
+  {
+	  return this.nick;
   }
 }
