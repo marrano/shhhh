@@ -57,9 +57,6 @@ public class InitMessageBox extends Dialog implements ActionListener  {
 	    manager = (DefaultLayoutManager)getRootPanel().getLayoutManager();
 		
 		_title = title;		
-		//_label = new Label(text);
-		//_label.setColors(defColor);
-						  	
 		
 		_textFieldMyName = new TextField(20,"nome tuo");  
 		_textFieldMyName.setColors(defColor);
@@ -70,17 +67,7 @@ public class InitMessageBox extends Dialog implements ActionListener  {
 	            WidgetsConstants.ALIGNMENT_TOP,
 	            WidgetsConstants.ALIGNMENT_LEFT);
 		
-		
-//		_textFieldRemoteName = new TextField(20,"nome remoto");  
-//		_textFieldRemoteName.setColors(defColor);
-//		_textFieldRemoteName.setCursorColors(defColor);
-//		_textFieldRemoteName.setDelimiterColors(defColor);
-//		_textFieldRemoteName.setTextComponentColors(defInvColor);	/* focus color*/
-//		manager.addWidget(_textFieldRemoteName, 2, 6, 20, 20,
-//	            WidgetsConstants.ALIGNMENT_TOP,
-//	            WidgetsConstants.ALIGNMENT_LEFT);
-		
-		_key = new TextField(20,"carlotta");  
+		_key = new TextField(20,"chiave");  
 		_key.setColors(defColor);
 		_key.setCursorColors(defColor); 
 		_key.setDelimiterColors(defColor);
@@ -156,12 +143,7 @@ public class InitMessageBox extends Dialog implements ActionListener  {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == _buttonOk)
 		{
-//			manager.removeWidget(_buttonOk);
-//			manager.removeWidget(_textFieldMyName);
-//			manager.removeWidget(_textFieldRemoteName);
-//			manager.removeWidget(_key);
-//			manager.removeWidget(_label);
-			
+		
 			myName = new String(_textFieldMyName.getText());
 			remoteName = new String(_textFieldMyName.getText());
 			key = new String(_key.getText());

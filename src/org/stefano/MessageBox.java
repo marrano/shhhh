@@ -34,7 +34,7 @@ public class MessageBox extends Dialog implements ActionListener  {
 	
 	static String buttonLabelOk = "ok";
 	
-	boolean exitStatus = false;
+	boolean exitStatusOk = true;
 	
     /**
     *  The constructor
@@ -56,7 +56,7 @@ public class MessageBox extends Dialog implements ActionListener  {
 		_title = title;		
 
 
-		_textArea = new TextArea(Toolkit.getScreenWidth()/4, Toolkit.getScreenHeight()/4 ,"");  
+		_textArea = new TextArea(Toolkit.getScreenWidth()/3-8, Toolkit.getScreenHeight()/4 ,"");  
 		_textArea.setColors(defColor);
 		_textArea.setBorderColors(noColor);
 		_textArea.setTextComponentColors(defInvColor);	/* focus color*/
@@ -68,11 +68,11 @@ public class MessageBox extends Dialog implements ActionListener  {
 		_buttonOk.addListener(this);
 
 		
-		manager.addWidget(_textArea, 0, 0, Toolkit.getScreenWidth()/4, Toolkit.getScreenHeight()/4 ,
+		manager.addWidget(_textArea, 0, 0, Toolkit.getScreenWidth()/3-8, Toolkit.getScreenHeight()/4 ,
 	            WidgetsConstants.ALIGNMENT_CENTER,
 	            WidgetsConstants.ALIGNMENT_CENTER);
 		
-		manager.addWidget(_buttonOk,2,getWidth(buttonLabelOk, _title)+5, getHeight(buttonLabelOk)+2, 5, WidgetsConstants.ALIGNMENT_CENTER, 
+		manager.addWidget(_buttonOk,Toolkit.getScreenWidth()/8,Toolkit.getScreenHeight()/4, getHeight(buttonLabelOk)+8, 5, WidgetsConstants.ALIGNMENT_CENTER, 
 						  WidgetsConstants.ALIGNMENT_CENTER);
 						  
 	}
@@ -80,15 +80,19 @@ public class MessageBox extends Dialog implements ActionListener  {
 	public void setText(String text) 
 	{  
 		_textArea.setText(_textArea.getText() + "\n" + text);
+		paint();
 	}
 	
 	public void clean() 
 	{  
 		_textArea.setText("");
+		paint();
 	}	
 	public void paint()
 	{
 		 super.paint();
+		 if(this.isVisible()==true)
+			 _buttonOk.getFocus();
 	}
 	
 	private static int getWidth(String label, String title) {
@@ -114,7 +118,12 @@ public class MessageBox extends Dialog implements ActionListener  {
 	}
 	public boolean getExitStatus() 
 	{
-		return exitStatus;
+		return exitStatusOk;
+	}
+	
+	public void setExitStatus(boolean status) 
+	{  
+		exitStatusOk=status;
 	}
 	
 	private static int getHeight(String label) {
@@ -135,8 +144,9 @@ public class MessageBox extends Dialog implements ActionListener  {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == _buttonOk)
 		{
-			exitStatus = true;
 			this.close();
+			if (getExitStatus()==false)
+					System.exit(1);
 		}
 
 	}

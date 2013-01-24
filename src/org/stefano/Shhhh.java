@@ -33,8 +33,7 @@ public class Shhhh extends Window implements ItemListener, ActionListener, Value
   Key 	 KS 						= null;
   String key						= null;
   String nick						= null;
-  Client chatClient					= null;
-  MessageBox connectionMsgBox 		= null;		
+  Client chatClient					= null;	
   MessageBox errorMsgBox 			= null;	
 
   public Shhhh(int width, int height) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
@@ -56,111 +55,116 @@ public class Shhhh extends Window implements ItemListener, ActionListener, Value
 	//System.out.println(cipher.getProvider());
   }
  
-  public void init() {
-	DefaultLayoutManager mgr = new DefaultLayoutManager();
-    mgr.bindToContainer(getRootPanel());
-    mgr.addWidget(
-        new Label("Shhhh...questa è una chat segreta!", defColor),
-        			2, 2, 40, 10,
-        			WidgetsConstants.ALIGNMENT_LEFT,
-        			WidgetsConstants.ALIGNMENT_TOP);
-      
-    textAreaOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
-    textAreaOutput.setColors(defColor);
-    textAreaOutput.setBorderColors(defColor);
-    textAreaOutput.setTextComponentColors(defInvColor);	/* focus color*/
-    textAreaOutput.removeListener(this);
-    mgr.addWidget(textAreaOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
-            WidgetsConstants.ALIGNMENT_TOP,
-            WidgetsConstants.ALIGNMENT_LEFT);
-    
-    textFieldInput = new TextField(Toolkit.getScreenWidth()-4,"");  
-    textFieldInput.setColors(defColor);
-    textFieldInput.setCursorColors(defColor);
-    textFieldInput.setDelimiterColors(defColor);
-    textFieldInput.setTextComponentColors(defInvColor);	/* focus color*/
-    mgr.addWidget(textFieldInput, 0, Toolkit.getScreenHeight()/2 + 16, Toolkit.getScreenWidth()-24, Toolkit.getScreenHeight()/2 - 20,
-            WidgetsConstants.ALIGNMENT_TOP,
-            WidgetsConstants.ALIGNMENT_LEFT);
-    
-    buttonSend = new Button("Manda");
-    buttonSend.setColors(defColor);
-    buttonSend.setFocusedButtonColors(defInvColor);	/* focus color*/
-    buttonSend.setShortCut('s');
-    buttonSend.addListener(this);
-    mgr.addWidget(buttonSend, Toolkit.getScreenWidth()-14, Toolkit.getScreenHeight()/2 + 16, 20, 10,
-            WidgetsConstants.ALIGNMENT_TOP,
-            WidgetsConstants.ALIGNMENT_LEFT);
-    
-    buttonExit = new Button("Smetti");
-    buttonExit.setColors(defColor);
-    buttonExit.setFocusedButtonColors(defInvColor);	/* focus color*/
-    buttonExit.setShortCut('q');
-    buttonExit.addListener(this);
-    mgr.addWidget(buttonExit, 2, Toolkit.getScreenHeight()-12, 10, 10,
-            WidgetsConstants.ALIGNMENT_BOTTOM,
-            WidgetsConstants.ALIGNMENT_LEFT);
-    
-    show();    
-    
-    textFieldInput.getFocus();	
-    textFieldInput.addListener(this);
-    
-    paint();
-    
-    getData();   
-    
-    connectionMsgBox = new MessageBox("Info");
-    connectionMsgBox.setBorderColors(defInvColor);
-    connectionMsgBox.setTitleColors(defColor);
-    connectionMsgBox.setTitleColors(defColor);
-    connectionMsgBox.getRootPanel().setPanelColors(defColor);
-    errorMsgBox = new MessageBox("Error");
-    errorMsgBox.setBorderColors(defInvColor);
-    errorMsgBox.setTitleColors(defColor);
-    errorMsgBox.setTitleColors(defColor);
-    errorMsgBox.getRootPanel().setPanelColors(defColor);
+  public void initGui() 
+  {
+		DefaultLayoutManager mgr = new DefaultLayoutManager();
+	    mgr.bindToContainer(getRootPanel());
+	    mgr.addWidget(
+	        new Label("Shhhh...questa è una chat segreta!", defColor),
+	        			2, 2, 40, 10,
+	        			WidgetsConstants.ALIGNMENT_LEFT,
+	        			WidgetsConstants.ALIGNMENT_TOP);
+	      
+	    textAreaOutput = new TextArea(Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,"");  
+	    textAreaOutput.setColors(defColor);
+	    textAreaOutput.setBorderColors(defColor);
+	    textAreaOutput.setTextComponentColors(defInvColor);	/* focus color*/
+	    textAreaOutput.removeListener(this);
+	    mgr.addWidget(textAreaOutput, 0, 4, Toolkit.getScreenWidth()-4, Toolkit.getScreenHeight()/2 + 10,
+	            WidgetsConstants.ALIGNMENT_TOP,
+	            WidgetsConstants.ALIGNMENT_LEFT);
+	    
+	    textFieldInput = new TextField(Toolkit.getScreenWidth()-4,"");  
+	    textFieldInput.setColors(defColor);
+	    textFieldInput.setCursorColors(defColor);
+	    textFieldInput.setDelimiterColors(defColor);
+	    textFieldInput.setTextComponentColors(defInvColor);	/* focus color*/
+	    mgr.addWidget(textFieldInput, 0, Toolkit.getScreenHeight()/2 + 16, Toolkit.getScreenWidth()-24, Toolkit.getScreenHeight()/2 - 20,
+	            WidgetsConstants.ALIGNMENT_TOP,
+	            WidgetsConstants.ALIGNMENT_LEFT);
+	    
+	    buttonSend = new Button("Manda");
+	    buttonSend.setColors(defColor);
+	    buttonSend.setFocusedButtonColors(defInvColor);	/* focus color*/
+	    buttonSend.setShortCut('s');
+	    buttonSend.addListener(this);
+	    mgr.addWidget(buttonSend, Toolkit.getScreenWidth()-14, Toolkit.getScreenHeight()/2 + 16, 20, 10,
+	            WidgetsConstants.ALIGNMENT_TOP,
+	            WidgetsConstants.ALIGNMENT_LEFT);
+	    
+	    buttonExit = new Button("Smetti");
+	    buttonExit.setColors(defColor);
+	    buttonExit.setFocusedButtonColors(defInvColor);	/* focus color*/
+	    buttonExit.setShortCut('q');
+	    buttonExit.addListener(this);
+	    mgr.addWidget(buttonExit, 2, Toolkit.getScreenHeight()-12, 10, 10,
+	            WidgetsConstants.ALIGNMENT_BOTTOM,
+	            WidgetsConstants.ALIGNMENT_LEFT);
+	    
+	    errorMsgBox = new MessageBox(" Errore ");
+	    errorMsgBox.setBorderColors(defInvColor);
+	    errorMsgBox.setTitleColors(defColor);
+	    errorMsgBox.setTitleColors(defColor);
+	    errorMsgBox.getRootPanel().setPanelColors(defColor);
+	    
+	    show();      
+	    
+	    textFieldInput.addListener(this);
+	    
+	    buttonExit.getFocus();
+	    
+	    paint();
+  }
+  
+ private void getData() {  
+	InitMessageBox msg = new InitMessageBox(" Dimmi tutto ");
+	msg.setBorderColors(defInvColor);
+	msg.setTitleColors(defColor);
+	msg.setTitleColors(defColor);
+	msg.getRootPanel().setPanelColors(defColor);
 
-    connectionMsgBox.show();
+	msg.show();
+	
+	if(msg.getExitStatus() == true) {
+		key = new String(msg.getKey());
+		nick = new String(msg.getMyName());	
+	}
+	else
+		setError("...ahia, qualcosa non funziona. Chiama il tecnico!\n\n:(", true); 
+ }
+ 
+ public void initCipher()  
+ {
+	byte[] KeyData = null;
+	try {
+		KeyData = key.getBytes("UTF8");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	KS = new SecretKeySpec(KeyData, "Blowfish");
+ }
+  
+  public void init() 
+  {
+	initGui();
+    
+    getData();  
+    
+    initCipher();
     
 	try {
 		chatClient = new Client(this);
 		
-	} catch (Exception e) {
-		printError("...ahia, qualcosa non funziona. Chiama il tecnico!\t  :("); 
-		errorMsgBox.show();
-		connectionMsgBox.close();
-        System.exit(1);
+	    textFieldInput.getFocus();	
+	    
+		chatClient.listen();
+	} 
+	catch (Exception e) {
+		setError("...ahia, qualcosa non funziona. Chiama il tecnico!\n\n:(", true); 	
     }
     
   }
-  
-private void getData() {  
- InitMessageBox msg = new InitMessageBox("Dimmi tutto");
-  msg.setBorderColors(defInvColor);
-  msg.setTitleColors(defColor);
-  msg.setTitleColors(defColor);
-  
-  msg.getRootPanel().setPanelColors(defColor);
-  
-  msg.show();
-  
-  if(msg.getExitStatus()==true) {
-	    key = new String(msg.getKey());
-	    byte[] KeyData = null;
-		try {
-			KeyData = key.getBytes("UTF8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    KS = new SecretKeySpec(KeyData, "Blowfish");
-	    
-	    nick = new String(msg.getMyName());
-  }
-  else
-	  this.close();
-}
 
 private void setTitleColors(short magenta) {
 	// TODO Auto-generated method stub
@@ -260,18 +264,19 @@ public void windowChanged(WindowEvent event) {
   
   public void printConnectionInfo(String info)
   {
-	  connectionMsgBox.setText("\n" + info + "\n");
-	  connectionMsgBox.paint();
-	  
+	textAreaOutput.setText("\t"+ textAreaOutput.getText() + "\n" + info+ "\n");
+	paint();
   }
   
-  public void printError(String err)
+  public void setError(String err, boolean isFatal)
   {
 	  errorMsgBox.clean();
 	  errorMsgBox.setText("\n" + err + "\n");
-	 
-	  //errorMsgBox.show();
-	  errorMsgBox.paint();
+	  
+	  if (isFatal==true)
+		  errorMsgBox.setExitStatus(false);
+	  if(errorMsgBox.isVisible()==false)
+		  errorMsgBox.show();	 
   }
   
   public void reciveRemoteMsg(String msg)

@@ -48,13 +48,12 @@ class Client
     	nick = gui.getNick();
     	          
         server = null;
-        gui.printConnectionInfo("Aspetta, provo a collegarmi...");
-        gui.printConnectionInfo("Aspasasas asasf ascfarmi...");
+        gui.printConnectionInfo(" 'spetta, provo a collegarmi...");
         try 
         {
 		    InetAddress hostIpAddress = InetAddress.getByName(hostname);
-		    gui.printConnectionInfo("server name: " + hostname);
-		    gui.printConnectionInfo("server IP: " + hostIpAddress.getHostAddress());
+		    gui.printConnectionInfo(" server name: " + hostname);
+		    gui.printConnectionInfo(" server IP: " + hostIpAddress.getHostAddress());
             server = new Socket(hostIpAddress.getHostAddress(), port);
             
             /* obtain an output stream to the server... */
@@ -62,12 +61,14 @@ class Client
             /* ... and an input stream */
             //in = new BufferedReader(new InputStreamReader(server.getInputStream()));
             
-            gui.printConnectionInfo("...pronto! :)"); 
+            out.println("HELO "+  nick );
+            
+            gui.printConnectionInfo(" ...pronto! :)"); 
             
         } catch (Exception e) 
         {
             //System.err.println(e);
-			gui.printConnectionInfo("...ahia, il server non risponde. Chiama il tecnico!\t  :("); 
+			gui.setError("...ahia, il server non risponde. Chiama il tecnico!\n\n:(", true); 
             //System.exit(1);
         }
     }
